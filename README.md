@@ -1,6 +1,20 @@
 # MOSH_2020_FONTAINE_FLOUTARD
 Source files for the M&OSH project ISS 2019-2020: PCB files, Arduino files and node-red files.
 
+
+## Table of content
+
+1. [Realisation of the PCB](#Realisation-of-the-PCB)
+    1. [Schematic](#schematic)
+        1. [Amplifier stage](#amplifier-stage)
+        1. [Lora Radio](#lora-radio)
+        1. [Arduino connection](#arduino-conetion)
+        1. [Gas sensor](#gas-sensor)
+    1. [PCB](#pcb)
+    1. [3D view](#3d-view)
+1. [Arduino code](#arduino-code)
+
+
 # Realisation of the PCB
 
 ## Schematic 
@@ -81,6 +95,8 @@ Main features are the following:
 * The face layer is makes connection between components
 
 ![PCB](./img/pcb.PNG)
+
+## 3D view
 
 The view in 3D:
 
