@@ -13,6 +13,7 @@ Source files for the M&OSH project ISS 2019-2020: PCB files, Arduino files and n
     1. [PCB](#pcb)
     1. [3D view](#3d-view)
 1. [Arduino code](#arduino-code)
+1. [Node Red](#node-red)
 
 
 # Realisation of the PCB
@@ -106,4 +107,39 @@ The source file of the PCB are in the folder [PCB](https://github.com/MOSH-Insa-
 
 ## Arduino code
 
-The [Arduino source code](https://github.com/MOSH-Insa-Toulouse/MOSH_2020_FONTAINE_FLOUTARD/tree/master/Arduino)
+The [Arduino source code](https://github.com/MOSH-Insa-Toulouse/MOSH_2020_FONTAINE_FLOUTARD/tree/master/Arduino) is based on the code given by TTN for Lora communication with Arduino. 
+
+The Lora radio sends messages to a TTN gateway. We had to create an account on TTN and add a new project with a new devices.
+We chose to use the APB method for connection. 
+We created the keys on TTN and added them on the code.
+
+```
+const char *devAddr = "26011***";
+const char *nwkSKey = "AB82F28D15AC415AA427************";
+const char *appSKey = "BA1BF3F2E70ECD142F8*************";
+
+join_result = myLora.initABP(devAddr, appSKey, nwkSKey);
+```
+
+
+We created two different code:
+
+* *Send the gas sensor value*
+
+In order to read the value from the gas sensor, we used `analogRead()`. We sent the value with the Lora radio.
+
+* *Send an alert when value is too high*
+
+We also implemented a code which send an alert if the value from the gas sensor is too high. This code use an interrupt attach to pin 2. 
+
+## Node Red
+
+The last of our project was to retrieve data from TTN on Node red. 
+
+We use the TTN node red library:
+
+![NodeRed](./img/node-red.PNG)
+
+We fill the TTN block with the correct data from TTN:
+
+![TTN](./img/ttn.PNG)
