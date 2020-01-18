@@ -24,7 +24,7 @@ We used the software LTSpice in order to simulate this analog circuit. This simu
 
 The first objective was to have an amplification. For this, we use an operational amplifier: the LTC1050. It is a "precision zero-drift" amplifier with a low noise and can be powered by a 5V input. The goal was to have an output of 1.1V for an input of 110nA. As it can be seen on the above screenshot of LTSpice, the goal is achieved.
 
-![LTScpice3](./img/ltspice3.PNG)
+![LTScpice3](./img/ltspice3.png)
 
 We want to measure the input current in the system. As the input current of an ideal amplifier is null, all the current will go into R2 resistor of 100kΩ. So the input of the amplifier we want to get is the voltage of the R2 resistor. For example, with 110nA, the voltage will be 11mV. And as we want an output of 1.1V, the amplification should be 100.
 
@@ -34,7 +34,7 @@ The second objective of the system is to filter the signal to reduce the noise. 
 
 On the screenshot below, we can see the bode diagram of the circuit.
 
-![LTScpice2](./img/ltspice2.PNG)
+![LTScpice2](./img/ltspice2.png)
 
 ### Lora Radio
 
