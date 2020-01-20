@@ -767,19 +767,10 @@ F 3 "" H 1200 4950 50  0001 C CNN
 	1    1200 4950
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:Antenna AE?
-U 1 1 5E2B376A
-P 4650 700
-F 0 "AE?" H 4730 689 50  0000 L CNN
-F 1 "Antenna" H 4730 598 50  0000 L CNN
-F 2 "" H 4650 700 50  0001 C CNN
-F 3 "~" H 4650 700 50  0001 C CNN
-	1    4650 700 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5450 1150 4650 1150
 Wire Wire Line
-	4650 1150 4650 900 
+	4650 1150 4650 1000
+Text GLabel 4650 1000 1    50   Input ~ 0
+antenna
 $EndSCHEMATC

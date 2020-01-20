@@ -166,16 +166,6 @@ void led_off()
   digitalWrite(13, 0);
 }
 
-float gas_sensor_value()
-{
-  float vol;
-  int sensorValue = analogRead(A0);
-  vol=(float)sensorValue;
-  Serial.print("The gas density is ");
-  Serial.println(vol);
-  return vol;
-}
-
 void enterSleep(void)
 {
   
