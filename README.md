@@ -22,7 +22,7 @@ Source files for the M&OSH project ISS 2019-2020: PCB files, Arduino files and n
 
 ![Schematic](./img/schema.PNG)
 
-The schematic is composed of three 4 parts:
+The schematic is composed of 4 parts:
 
 1. The Amplifier stage (on the top-left)
 1. The Lora Tx Radio Chip (on the top-middle)
@@ -33,19 +33,19 @@ The schematic is composed of three 4 parts:
 
 ![Amplifier](./img/amplifier.PNG)
 
-This stage is compose of several filters and an operational amplifier. The role of this stage is to filter and amplificate the signal before the analog to digital conversion of the Arduino. 
+This stage is composed of several filters and an operational amplifier. The role of this stage is to filter and amplify the signal before the analog to digital conversion of the Arduino. 
 
-We used the software LTSpice in order to simulate this analog circuit. This simulator allows us to create all schematics we want and simulate them with different parameter. For example, we can plot the bode diagram of a circuit in order to find his cut-off frequency.
+We used the software LTSpice in order to simulate this analog circuit. This simulator allows us to create all the schematics we want and simulate them with different parameters. For example, we can plot the bode diagram of a circuit in order to find its cut-off frequency.
 
-The first objective was to have an amplification. For this, we use an operational amplifier: the LTC1050. It is a "precision zero-drift" amplifier with a low noise and can be powered by a 5V input. The goal was to have an output of 1.1V for an input of 110nA. As it can be seen on the above screenshot of LTSpice, the goal is achieved.
+The first objective was to have an amplification. For this, we use an operational amplifier: the LTC1050. It is a "precision zero-drift" amplifier with a low noise and can be powered by a 5V input. The goal was to have an output of 1.1V for an input of 110nA. As it can be seen on the below screenshot of LTSpice, the goal is achieved.
 
 ![LTScpice3](./img/ltspice3.png)
 
 We want to measure the input current in the system. As the input current of an ideal amplifier is null, all the current will go into R2 resistor of 100kΩ. So the input of the amplifier we want to get is the voltage of the R2 resistor. For example, with 110nA, the voltage will be 11mV. And as we want an output of 1.1V, the amplification should be 100.
 
-As the montage is non-inverting, the gain can be set with R3 and R5 resistors. The gain is 1+R5/R3. So to get a gain of 100, we can choose R5=100kΩ and R3=1kΩ.
+As the experimental assembly is non-inverting, the gain can be set with R3 and R5 resistors. The gain is 1+R5/R3. So to get a gain of 100, we can choose R5=100kΩ and R3=1kΩ.
 
-The second objective of the system is to filter the signal to reduce the noise. For that, we use 3 different filters. The first one is a simple RC low pass filter with a cut-off frequency of 1/(2*π*R1*C1) an filters the input current.  The second filter is an active filter with C3 and R5 which is used with the amplifier and the last filter is a low pass filter with R4 and C2 which filter the output voltage. The C4 capacitor is here to filter the alimentation noise.
+The second objective of the system is to filter the signal to reduce the noise. For that, we use 3 different filters. The first one is a simple RC low pass filter with a cut-off frequency of 1/(2\*π\*R1\*C1) an filters the input current. The second filter is an active filter with C3 and R5 which is used with the amplifier and the last filter is a low pass filter with R4 and C2 which filter the output voltage. The C4 capacitor is here to filter the power supply noise.
 
 On the screenshot below, we can see the bode diagram of the circuit.
 
@@ -55,7 +55,7 @@ On the screenshot below, we can see the bode diagram of the circuit.
 
 ![Lora](./img/lora.PNG)
 
-We connected the only the pin we use on the Lora radio:
+We connected only the pin we use on the Lora radio:
 * Reset
 * RX
 * TX
@@ -79,7 +79,7 @@ We connected the following ports:
 
 ![Sensor](./img/sensor.PNG)
 
-We connected the output of the gas sensor to two jumper. So it is easy to switch from one sensor to the over. 
+We connected the output of the gas sensor to two jumpers. So it is easy to switch from one sensor to the other. 
 
 We also connected the temperature output to the Arduino.
 
@@ -93,7 +93,7 @@ Main features are the following:
 * The TX Lora radio can be welded directly on the board
 * An antenna can be added to the PCB 
 * The bottom layer is connected to the ground (green)
-* The face layer is makes connection between components
+* The face layer makes connection between components
 
 ![PCB](./img/pcb.PNG)
 
@@ -122,7 +122,7 @@ join_result = myLora.initABP(devAddr, appSKey, nwkSKey);
 ```
 
 
-We created two different code:
+We created two different codes:
 
 * *Send the gas sensor value*
 
@@ -130,11 +130,11 @@ In order to read the value from the gas sensor, we used `analogRead()`. We sent 
 
 * *Send an alert when value is too high*
 
-We also implemented a code which send an alert if the value from the gas sensor is too high. This code use an interrupt attach to pin 2. 
+We also implemented a code which sends an alert if the value from the gas sensor is too high. This code uses an interrupt attached to pin 2. 
 
 ## Node Red
 
-The last of our project was to retrieve data from TTN on Node red. 
+The last part of our project was to retrieve data from TTN on Node red. 
 
 We use the TTN node red library:
 
