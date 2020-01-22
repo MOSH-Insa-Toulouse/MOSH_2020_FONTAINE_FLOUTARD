@@ -4,16 +4,29 @@ Source files for the M&OSH project ISS 2019-2020: PCB files, Arduino files and n
 
 ## Table of content
 
+1. [Realisation of the gas sensor](#Realisation-of-the-gas-sensor)
 1. [Realisation of the PCB](#Realisation-of-the-PCB)
     1. [Schematic](#schematic)
+        1. [Gas sensor](#gas-sensor)
         1. [Amplifier stage](#amplifier-stage)
         1. [Lora Radio](#lora-radio)
         1. [Arduino connection](#arduino-conetion)
-        1. [Gas sensor](#gas-sensor)
     1. [PCB](#pcb)
     1. [3D view](#3d-view)
 1. [Arduino code](#arduino-code)
 1. [Node Red](#node-red)
+
+# Realisation of the gas sensor
+
+![Gas Sensor](./img/gas_sensor.PNG)
+
+We realized a gas sensor at the AIME composed of nanoparticles of tungsten. 
+
+The sensor has 10 pins but we do not use all of them.
+
+![Gas Sensor Pinout](./img/gas_pinout.PNG)
+
+![Gas Sensor table](./img/gas_table.PNG)
 
 
 # Realisation of the PCB
@@ -28,6 +41,14 @@ The schematic is composed of 4 parts:
 1. The Lora Tx Radio Chip (on the top-middle)
 1. The Arduino connection (on the top-right)
 1. The Gas sensor connection (on the bottom-left)
+
+### Gas sensor
+
+![Sensor](./img/sensor.PNG)
+
+We connected the output of the gas sensor to two jumpers. So it is easy to switch from one sensor to the other. 
+
+We also connected the temperature output to the Arduino.
 
 ### Amplifier stage
 
@@ -75,13 +96,6 @@ We connected the following ports:
 * Gas_Sensor_Out
 * Temp_Sensor
 
-### Gas sensor
-
-![Sensor](./img/sensor.PNG)
-
-We connected the output of the gas sensor to two jumpers. So it is easy to switch from one sensor to the other. 
-
-We also connected the temperature output to the Arduino.
 
 
 ## PCB
